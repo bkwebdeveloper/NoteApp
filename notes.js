@@ -35,6 +35,13 @@ const removeNote = (title) => {
     }
 }
 
+const readNote = (title) => {
+    const notes = loadNotes();
+    const note = notes.find((note) => note.title === title);
+    console.log(chalk.green.inverse("Here is your note!"))
+    console.log(chalk.bold.yellow('Title: ' + note.title + '\t\t' + ' Description: ' + note.body));
+}
+
 const listNotes = () => {
     const notes = loadNotes();
     try {
@@ -65,5 +72,6 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
-  listNotes: listNotes  
+  listNotes: listNotes,
+  readNote: readNote  
 };
